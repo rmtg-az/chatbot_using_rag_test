@@ -18,6 +18,7 @@ The prototype consists of:
 ├── chatbot.py
 ├── main.py
 └── rag.py
+```
 
 ## Main Components
 * main.py
@@ -66,5 +67,6 @@ The system will eventually combine:
  Financial Analysis
         ↓
       API
+```
 
 This project is currently under development.
