@@ -14,7 +14,7 @@ The current version is a RAG-based prototype.
 
 The prototype consists of:
 
-prototype/
+```prototype/
 ├── chatbot.py
 ├── main.py
 └── rag.py
@@ -57,7 +57,7 @@ The goal is to develop the prototype into a practical AI system for financial st
 
 The system will eventually combine:
 
-Financial Documents
+```Financial Documents
         ↓
        RAG
         ↓
