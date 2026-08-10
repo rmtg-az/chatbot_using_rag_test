@@ -64,9 +64,9 @@ Financial Documents
         ↓
        RAG
         ↓
-  Multi-Agent Analysis
+Multi-Agent Analysis
         ↓
- Financial Analysis
+Financial Analysis
         ↓
        API
 ```
