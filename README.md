@@ -22,12 +22,12 @@ prototype/
 ```
 
 ## Main Components
-* main.py
-  Entry point of the prototype.
-* rag.py
-  Handles document retrieval and RAG-related processing.
-* chatbot.py
-  Handles chatbot logic and generates responses based on retrieved information.
+* main.py  
+Entry point of the prototype.
+* rag.py  
+Handles document retrieval and RAG-related processing.
+* chatbot.py  
+Handles chatbot logic and generates responses based on retrieved information.
 
 ## Development Roadmap
 
@@ -68,7 +68,7 @@ Financial Documents
         ↓
  Financial Analysis
         ↓
-      API
+       API
 ```
 
 This project is currently under development.
