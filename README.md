@@ -17,13 +17,13 @@ The prototype consists of:
 ```
 prototype/
 ├── chatbot.py
-├── main.py
+├── create_vector_db.py
 └── rag.py
 ```
 
 ## Main Components
-* main.py  
-Entry point of the prototype.
+* create_vector_db.py  
+Creates a vector database from financial documents.
 * rag.py  
 Handles document retrieval and RAG-related processing.
 * chatbot.py  
