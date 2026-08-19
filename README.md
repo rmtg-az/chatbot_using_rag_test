@@ -28,19 +28,19 @@ prototype/
 Generated files and directories such as the FAISS index, uploaded PDFs, logs, and JSON output are excluded from Git tracking.
 
 ## Main Components
-* main.py
+* main.py  
   Entry point of the FastAPI application.
-* api_router.py
+* api_router.py  
   Defines the API endpoints for PDF upload and chatbot queries.
-* pdf_save.py
+* pdf_save.py  
   Handles PDF file validation and local storage.
-* rag.py
+* rag.py  
   Loads PDF documents, splits them into chunks, generates embeddings, and creates a FAISS vector database.
-* chatbot.py
+* chatbot.py  
   Retrieves relevant document chunks and generates responses using Gemini.
-* json_save.py
+* json_save.py  
   Saves questions and generated answers as JSON chat logs.
-* logging_config.py
+* logging_config.py  
   Configures application logging to both a log file and the console.
 
 ## Technologies
@@ -60,6 +60,7 @@ The prototype will be expanded step by step.
 * Implement a basic RAG pipeline
 * Retrieve relevant information from financial documents
 * Generate analysis based on retrieved context
+* Create a FAISS vector database
 
 ## Phase 2: FastAPI — Completed
 * Develop an API using FastAPI
