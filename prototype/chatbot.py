@@ -3,6 +3,11 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_core.retrievers import BaseRetriever
 
+import logging
+
+
+logger = logging.getLogger(__name__)
+
 
 EMBEDDING_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 FAISS_DIR = "faiss_index"
@@ -30,30 +35,40 @@ def ask_question(question:str,
                  llm:ChatGoogleGenerativeAI
                  ) -> str:
 
-    docs = retriever.invoke(question)
+    logger.info("チャットボット回答開始")
 
-    """ Debug: Display retrieved chunks
-        for i, doc in enumerate(docs):
-            print(f"===== {i} =====")
-            print(doc.page_content) """
+    try:
 
-    context = "\n".join(
-        doc.page_content for doc in docs
-    )
+        docs = retriever.invoke(question)
 
-    prompt = create_prompt(
-        context,
-        question
-    )
+        # Debug: Display retrieved chunks
+        # for i, doc in enumerate(docs):
+        #     print(f"===== {i} =====")
+        #     print(doc.page_content)
 
-    response = llm.invoke(prompt)
+        context = "\n".join(
+            doc.page_content for doc in docs
+        )
 
-    return response.content
+        prompt = create_prompt(
+            context,
+            question
+        )
+
+        response = llm.invoke(prompt)
+
+        logger.info("チャットボット回答終了")
+
+        return response.content
+
+    except Exception as e:
+        logger.exception("チャットボット処理に失敗しました")
+        raise RuntimeError(
+            f"チャットボットエラー: {e}"
+        )
 
 
-def main() -> None:
-    """Run the RAG chatbot."""
-
+def load_chatbot():
     embeddings = HuggingFaceEmbeddings(
         model_name=EMBEDDING_MODEL
     )
@@ -71,6 +86,14 @@ def main() -> None:
     llm = ChatGoogleGenerativeAI(
         model=LLM_MODEL
     )
+
+    return retriever, llm
+
+
+def main() -> None:
+    """Run the RAG chatbot."""
+
+    retriever, llm = load_chatbot()
 
     while True:
 

@@ -7,3 +7,7 @@ venv/
 faiss_index/
 data/
 logs/
+output_json/
+pdf_save/
+test/
+app/
