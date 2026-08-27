@@ -1,21 +1,47 @@
 # Financial Statement Analysis Chatbot with RAG
 
-A prototype chatbot for analyzing corporate financial statements using Retrieval-Augmented Generation (RAG).
+A RAG-based chatbot for analyzing corporate financial statements using Retrieval-Augmented Generation (RAG).
 
 ## Project Overview
 
-This project is a prototype of an AI chatbot that analyzes corporate financial information using RAG.
+This project demonstrates a basic AI chatbot for analyzing corporate financial information using RAG.
 
-The current prototype provides a basic workflow for uploading financial documents, creating a FAISS vector database, retrieving relevant information, generating answers with Gemini, and saving chat logs as JSON.
+The system provides a workflow for uploading financial documents, creating a FAISS vector database, retrieving relevant information, generating responses with Google Gemini, and saving chat logs as JSON.
+
+The project was developed as a learning and prototyping project to explore the practical implementation of RAG for financial document analysis.
 
 ## Current Status
 
-The current version is a RAG-based chatbot prototype implemented with FastAPI.
+This project is a completed RAG-based chatbot prototype implemented with FastAPI.
 
-The prototype consists of:
+The application demonstrates the following workflow:
 
 ```
-prototype/
+Financial Documents
+        ↓
+PDF Processing
+        ↓
+Text Chunking
+        ↓
+Embedding Generation
+        ↓
+FAISS Vector Database
+        ↓
+Relevant Information Retrieval
+        ↓
+Google Gemini
+        ↓
+Generated Response
+        ↓
+JSON Chat Log
+```
+
+Generated files and directories such as the FAISS index, uploaded PDFs, logs, and JSON output are excluded from Git tracking.
+
+## Project Structure
+
+```
+app/
 ├── api_router.py  
 ├── chatbot.py  
 ├── json_save.py  
@@ -24,8 +50,6 @@ prototype/
 ├── pdf_save.py  
 └── rag.py
 ```
-
-Generated files and directories such as the FAISS index, uploaded PDFs, logs, and JSON output are excluded from Git tracking.
 
 ## Main Components
 * main.py  
@@ -37,62 +61,35 @@ Generated files and directories such as the FAISS index, uploaded PDFs, logs, an
 * rag.py  
   Loads PDF documents, splits them into chunks, generates embeddings, and creates a FAISS vector database.
 * chatbot.py  
-  Retrieves relevant document chunks and generates responses using Gemini.
+  Retrieves relevant document chunks and generates responses using Google Gemini.
 * json_save.py  
   Saves questions and generated answers as JSON chat logs.
 * logging_config.py  
   Configures application logging to both a log file and the console.
 
-## Technologies
-* Python
-* FastAPI
-* LangChain
-* FAISS
-* Hugging Face Embeddings
-* Google Gemini
-* Pydantic
+## Implementation Highlights
+* PDF document upload and validation
+* Text extraction and document chunking
+* Multilingual text embeddings using Hugging Face
+* FAISS-based vector similarity search
+* Retrieval-Augmented Generation (RAG)
+* LLM-based financial document analysis
+* REST API implementation with FastAPI
+* Structured JSON chat log storage
+* Application logging for monitoring and debugging
 
-## Development Roadmap
+## Project Status
 
-The prototype will be expanded step by step.
+The RAG chatbot implementation is complete as a prototype.
 
-## Phase 1: RAG Prototype — Completed
-* Implement a basic RAG pipeline
-* Retrieve relevant information from financial documents
-* Generate analysis based on retrieved context
-* Create a FAISS vector database
+This project is intended to demonstrate the implementation of a RAG pipeline for financial document analysis rather than serve as a production-ready financial analysis system.
 
-## Phase 2: FastAPI — Completed
-* Develop an API using FastAPI
-* Provide an interface for submitting analysis requests
-* Structure the application for practical use
+Further development of this project is not currently planned. Future experiments with more advanced architectures, including multi-agent approaches for financial document analysis, will be developed as separate projects.
 
-## Phase 3: Logging — Completed
-* Add application logging
-* Record analysis processes and errors
-* Improve monitoring and debugging
+## Related Project
 
-## Phase 4: Multi-Agent Analysis — Planned
-* Divide financial analysis into multiple specialized agents
-* Analyze different aspects of financial statements
-* Combine the results into a comprehensive analysis
+A separate project is planned to explore a multi-agent architecture for analyzing annual securities reports.
 
-## Future Goal
+The new project will focus on dividing financial analysis into specialized agents and combining their results into a comprehensive analysis.
 
-The goal is to develop the prototype into a practical AI system for financial statement analysis.
-
-The system will eventually combine:
-
-```
-Financial Documents
-        ↓
-       RAG
-        ↓
-Multi-Agent Analysis
-        ↓
-Financial Analysis
-        ↓
-       API
-```
-
-This project is currently under development.
+This project and the future multi-agent project are intentionally separated to demonstrate different approaches to applying LLMs to financial document analysis.

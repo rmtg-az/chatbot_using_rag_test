@@ -1,5 +1,4 @@
 .env
-api/
 __pycache__/
 *.pyc
 venv/
@@ -10,4 +9,3 @@ logs/
 output_json/
 pdf_save/
 test/
-app/
